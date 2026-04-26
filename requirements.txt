@@ -1,0 +1,8 @@
+fastapi>=0.115.0
+uvicorn>=0.32.0
+asyncpg>=0.30.0
+python-dotenv>=1.0.1
+pydantic>=2.9.2
+pyjwt>=2.9.0
+python-multipart>=0.0.12
+razorpay>=1.5.0
