@@ -34,7 +34,7 @@ async def request_otp(
     req: OTPRequest, 
     background_tasks: BackgroundTasks,
     pool: asyncpg.Pool = Depends(get_db_pool),
-    redis_client: redis.Redis = Depends(get_redis)
+    redis_client = Depends(get_redis)
 ):
     otp_code = str(random.randint(100000, 999999))
     
@@ -57,7 +57,7 @@ async def request_otp(
 async def verify_otp(
     req: OTPVerify, 
     pool: asyncpg.Pool = Depends(get_db_pool),
-    redis_client: redis.Redis = Depends(get_redis)
+    redis_client = Depends(get_redis)
 ):
     # Check OTP in Redis
     stored_otp = await redis_client.get(f"otp:{req.email}")
